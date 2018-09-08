@@ -40,20 +40,17 @@ body {
 header {
   /* Use flexbox to help manage element containers */
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-around;
-  margin: 10px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  border: 1px solid lightgrey;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: space-around;
+  height: 100%;
 }
 
 .title {
   /* style name in header, spacing and positioning */
+  align-self: center;
   color: #933;
-  text-shadow: 1px 1px lightgrey;
+  text-shadow: 2px 2px 2px lightgrey;
   position: relative;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -61,25 +58,37 @@ header {
   border-top: 2px solid;
   border-radius: 5px;
   border-bottom: 2px solid;
-  padding: 5px;
-  font-size: 1.0em;
-  border: 1px solid lightgrey;
+  font-size: 1.1em;
+  width: 80%;
+  padding: 10px;
 }
 
 .scoreBoard {
+  /* alignment for self in parent */
+  align-self: center;
+
+  /* text style */
+  width: 80%;
+  font-family: 'FontAwesome', sans-serif;
+  font-size: 1em;
+  color: #933;
+
+  /* make flexbox within scoreBoard */
   display: flex;
-  flex-wrap: nowrap;
+  align-content: space-around;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
-  border: 1px solid lightgrey;
+  height: 100%;
 }
 
 .scoreItem {
-  font-family: 'FontAwesome', sans-serif;
-  font-size: 0.7em;
-  color: #933;
-  margin: 20px;
-  border: 1px solid lightgrey;
+  align-self: flex-end;
+  width: 25%;
+  /* border: 1px solid lightgrey; */
+}
+
+.restart {
+  transform: rotateY(180deg);
 }
 
 /*
@@ -92,3 +101,42 @@ main {
   /* ensure usage of full main area */
   width: 100%;
 }
+
+.grid {
+
+}
+
+table,
+tr,
+td {
+  border: 1px solid #933;
+}
+
+table {
+  border-collapse: separate;
+  margin: 15px auto;
+  border-radius: 20px;
+  border-spacing: 10px;
+  box-shadow: 2px 2px 2px grey;
+  background: linear-gradient(to right bottom, #f2d9d9, #c66);
+}
+
+tr {
+  height: 60px;
+}
+
+td {
+  width: 60px;
+  border-radius: 50%;
+  box-shadow: 2px 2px 2px #933;
+  background: linear-gradient(to right bottom, #ff9, #cc0);
+}
+
+
+
+/*
+TODO:
+This might be fun
+
+tr:hover { box-shadow: 0px 2px 18px 0px rgba(0,0,0,0.5); cursor: pointer; }
+*/
