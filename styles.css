@@ -79,12 +79,20 @@ header {
   justify-content: center;
   align-items: center;
   height: 100%;
+  text-align: center;
 }
 
 .scoreItem {
   align-self: flex-end;
   width: 25%;
-  /* border: 1px solid lightgrey; */
+
+  /* minimum button width for small screens */
+  min-width: 48px;
+  min-height: 48px;
+
+  /* center vertically */
+  line-height: 48px;
+  height: 48px;
 }
 
 .restart {
@@ -131,7 +139,7 @@ td {
   border-radius: 50%;
   box-shadow: 4px 4px 2px #933;
   background: linear-gradient(to right bottom, #ff9, #cc0);
-  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
 }
 
 td:hover {
@@ -141,10 +149,8 @@ td:hover {
 
 td:active {
   transform: translate(4px, 4px);
-  box-shadow: -1px -1px 0 #c66;
+  box-shadow: 0 0 0 #c66;
 }
-
-
 
 /*
 TODO:

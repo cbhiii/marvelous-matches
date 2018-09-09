@@ -6,3 +6,5 @@
 //
 // game.js
 //
+
+// listen for reload game request
