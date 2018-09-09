@@ -55,12 +55,13 @@ header {
   letter-spacing: 2px;
   text-transform: uppercase;
   text-align: center;
-  border-top: 2px solid;
+  border-top: 3px solid;
+  border-bottom: 3px solid;
   border-radius: 5px;
-  border-bottom: 2px solid;
   font-size: 1.1em;
   width: 80%;
   padding: 10px;
+  box-shadow: 4px 4px 4px lightgrey;
 }
 
 .scoreBoard {
@@ -122,10 +123,10 @@ td {
 
 table {
   border-collapse: separate;
-  margin: 15px auto;
+  margin: 5px auto;
   border-radius: 20px;
   border-spacing: 10px;
-  box-shadow: 2px 2px 2px grey;
+  box-shadow: 6px 6px 6px lightgrey;
   background: linear-gradient(to right bottom, #f2d9d9, #c66);
   cursor: pointer;
 }

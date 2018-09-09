@@ -14,8 +14,8 @@ index.html
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- load custom fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
-        <link href="http://weloveiconfonts.com/api/?family=fontawesome" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet prefetch">
+        <link href="http://weloveiconfonts.com/api/?family=fontawesome" rel="stylesheet prefetch">
         <!-- call style sheets -->
         <link rel="stylesheet" href="styles.css">
         <link rel="stylesheet" href="responsive.css">
@@ -32,21 +32,21 @@ index.html
             <h1 class="title">Marvelous Matches</h1>
 
             <div class="scoreBoard">
-                    <div class="scoreItem timer">
+                    <div class="scoreItem">
                         <span class="fontawesome-time"></span>
-                        <span class="time">0s</span>
+                        <span id="time">0s</span>
                     </div>
-                    <div class="scoreItem moves">
+                    <div class="scoreItem">
                         <span class="fontawesome-move"></span>
-                        <span class="move">0</span>
+                        <span id="move">0</span>
                     </div>
-                    <div class="scoreItem stars">
+                    <div class="scoreItem">
                         <span id= "star1" class="fontawesome-star"></span>
                         <span id= "star2" class="fontawesome-star"></span>
                         <span id= "star3" class="fontawesome-star-empty"></span>
                     </div>
-                    <div class="scoreItem restart">
-                        <span class="fontawesome-repeat"></span>
+                    <div class="scoreItem">
+                        <span id="redo" class="fontawesome-repeat">1</span>
                     </div>
             </div>
 
@@ -98,7 +98,6 @@ index.html
                 </table>
             </section>
         </main>
-
     </body>
 
 <!--
