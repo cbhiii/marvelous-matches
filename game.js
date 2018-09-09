@@ -22,6 +22,7 @@ let totalTime = 0;
 let list = {};
 let matches = 0;
 let sec = document.getElementById('time');
+let clock = "";
 
 
 // function declarations
@@ -94,7 +95,6 @@ function noMatch (a,b,c,d) {
 
 
 function makeTimer() {
-
     totalTime += 1;
     sec.textContent = totalTime + "s";
 }
@@ -136,10 +136,18 @@ function takeTurn(event) {
             cardIconA = "";
             cardIconB = "";
 
+            // check for win if all 8 pairs guessed
+            // display status modal if so
             if (matches === 8) {
-                totalTime =
-                alert('You win!');
-                // need summary score etc.
+                gameTime = totalTime;
+                clearInterval(clock);
+                document.getElementById('modalContent').innerHTML = "<p>Congratualtions you win!</p><p>It took you " + gameTime + " seconds.<br>You did it in " + moves + " moves and earned a star rating of " + stars + ".</p><p>Would you like to play again?</p>";
+                let mod = document.getElementById('theModal');
+                mod.style.cssText = "display: block;";
+                mod.addEventListener('click', function() {
+                    location.reload();
+                }, false);
+
             }
         }
 
@@ -173,7 +181,7 @@ function takeTurn(event) {
         }
 
         if (moves === 1) {
-            setInterval(makeTimer, 1000);
+            clock = setInterval(makeTimer, 1000);
         }
 
     }
