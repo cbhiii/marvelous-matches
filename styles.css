@@ -119,6 +119,7 @@ table {
   border-spacing: 10px;
   box-shadow: 2px 2px 2px grey;
   background: linear-gradient(to right bottom, #f2d9d9, #c66);
+  cursor: pointer;
 }
 
 tr {
@@ -128,8 +129,19 @@ tr {
 td {
   width: 60px;
   border-radius: 50%;
-  box-shadow: 2px 2px 2px #933;
+  box-shadow: 4px 4px 2px #933;
   background: linear-gradient(to right bottom, #ff9, #cc0);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+td:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 2px #933;
+}
+
+td:active {
+  transform: translate(4px, 4px);
+  box-shadow: -1px -1px 0 #c66;
 }
 
 
