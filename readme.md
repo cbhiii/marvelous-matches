@@ -35,8 +35,3 @@ Once in the local folder, click on the ```index.html``` file to play the game.
  ## Author
 
  * **Chuck Huffman** - *Initial version created without template*
-
-
- ## License
-
- This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
