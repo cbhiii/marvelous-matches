@@ -18,8 +18,10 @@ let cardSlotA = "";
 let cardIconA = "";
 let cardSlotB = "";
 let cardIconB = "";
-let timer = 0;
+let totalTime = 0;
 let list = {};
+let matches = 0;
+let sec = document.getElementById('time');
 
 
 // function declarations
@@ -83,30 +85,30 @@ cards.forEach(function(crd) {
 // (what a pain to wrap my head around - but I got!!!)
 function noMatch (a,b,c,d) {
     return function(){
-        console.log('in reset function');
         document.getElementById(a).style.cssText = "";
         document.getElementById(b).style.cssText = "";
         document.getElementById(a).classList.remove(c);
         document.getElementById(b).classList.remove(d);
-        console.log(a + c + " " + b + d);
     };
 }
 
 
-function takeTurn(event) {
-    moves += 1;
+function makeTimer() {
 
-    if (moves === 1) {
-        // start clock
-    }
+    totalTime += 1;
+    sec.textContent = totalTime + "s";
+}
+
+
+function takeTurn(event) {
 
     if (document.getElementById(event.target.id).classList.contains('match')) {
-        alert('Already a match!');
+        return;
     }
     else {
         document.getElementById(event.target.id).classList.add(list[event.target.id]);
 
-        if (event.target.id === cardSlotA) {
+        if (event.target.id === cardSlotA)  {
             return;
         }
 
@@ -123,27 +125,36 @@ function takeTurn(event) {
         }
 
         if (cardIconA === cardIconB) {
+            moves += 1;
+            matches += 1;
             document.getElementById(cardSlotA).classList.add('match');
             document.getElementById(cardSlotB).classList.add('match');
-            document.getElementById(cardSlotA).style.cssText = "background: linear-gradient(to right bottom, #3f3, #090);box-shadow: 0 0 0 #c66;transition: transform 1.0s ease;transform: rotateX(720deg) translate(2px, 2px);";
-            document.getElementById(cardSlotB).style.cssText = "background: linear-gradient(to right bottom, #3f3, #090);box-shadow: 0 0 0 #c66;transition: transform 1.0s ease;transform: rotateX(720deg);";
+            document.getElementById(cardSlotA).style.cssText = "background: linear-gradient(to right bottom, #3f3, #090);box-shadow: 0 0 0 #c66;transform: translate(4px, 4px);";
+            document.getElementById(cardSlotB).style.cssText = "background: linear-gradient(to right bottom, #3f3, #090);box-shadow: 0 0 0 #c66;transform: translate(4px, 4px);";
             cardSlotA = "";
             cardSlotB = "";
             cardIconA = "";
             cardIconB = "";
+
+            if (matches === 8) {
+                totalTime =
+                alert('You win!');
+                // need summary score etc.
+            }
         }
 
         else if (cardSlotB === "") {
-
+            return;
         }
 
         else {
-            document.getElementById(cardSlotA).style.cssText = "background: linear-gradient(to right bottom, #f66, #c00);box-shadow: 0 0 0 #c66;transition: transform 1.0s ease;transform: rotateZ(180deg) translate(2px, 2px);";
-            document.getElementById(cardSlotB).style.cssText = "background: linear-gradient(to right bottom, #f66, #c00);box-shadow: 0 0 0 #c66;transition: transform 0.8s linear;transform: rotateZ(180deg);";
+            moves += 1;
+            document.getElementById(cardSlotA).style.cssText = "background: linear-gradient(to right bottom, #f66, #c00);box-shadow: 0 0 0 #c66;transform: translate(4px, 4px);";
+            document.getElementById(cardSlotB).style.cssText = "background: linear-gradient(to right bottom, #f66, #c00);box-shadow: 0 0 0 #c66;transform: translate(4px, 4px);";
 
             // learned and using delay found here https://stackoverflow.com/a/24953
             // (what a pain to wrap my head around - but I got!!!)
-            setTimeout(noMatch(cardSlotA, cardSlotB, cardIconA, cardIconB), 2000);
+            setTimeout(noMatch(cardSlotA, cardSlotB, cardIconA, cardIconB), 1000);
 
             cardSlotA = "";
             cardSlotB = "";
@@ -151,18 +162,26 @@ function takeTurn(event) {
             cardIconB = "";
         }
 
+        document.getElementById('move').textContent = moves;
+        if (moves === 15) {
+            stars = 2;
+            starCount(stars);
+        }
+        else if (moves === 20) {
+            stars = 1;
+            starCount(stars);
+        }
+
+        if (moves === 1) {
+            setInterval(makeTimer, 1000);
+        }
 
     }
 
 }
 
-
-
 // randomize cards
 shuffle(icons);
-
-// update star count
-starCount(stars);
 
 // print list of card values
 console.log(list);

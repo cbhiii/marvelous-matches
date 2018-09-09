@@ -140,16 +140,12 @@ td {
   line-height: 48px;
   height: 48px;
   text-align: center;
-  font-size: 3.5em;
+  font-size: 3.0em;
   width: 60px;
   border-radius: 50%;
   box-shadow: 4px 4px 2px #933;
   background: linear-gradient(to right bottom, #ff9, #cc0);
   transition: transform 0.1s ease, box-shadow 0.1s ease;
-}
-
-td.hidden {
-  opacity: 0;
 }
 
 td:hover {
