@@ -136,11 +136,20 @@ tr {
 }
 
 td {
+  font-family: 'FontAwesome', sans-serif;
+  line-height: 48px;
+  height: 48px;
+  text-align: center;
+  font-size: 3.5em;
   width: 60px;
   border-radius: 50%;
   box-shadow: 4px 4px 2px #933;
   background: linear-gradient(to right bottom, #ff9, #cc0);
-  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+td.hidden {
+  opacity: 0;
 }
 
 td:hover {
@@ -152,10 +161,3 @@ td:active {
   transform: translate(4px, 4px);
   box-shadow: 0 0 0 #c66;
 }
-
-/*
-TODO:
-This might be fun
-
-tr:hover { box-shadow: 0px 2px 18px 0px rgba(0,0,0,0.5); cursor: pointer; }
-*/
