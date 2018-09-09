@@ -96,6 +96,7 @@ header {
   height: 48px;
 }
 
+/* flip repeat icon to more closely represent a restart icon */
 .restart {
   transform: rotateY(180deg);
 }
@@ -111,16 +112,13 @@ main {
   width: 100%;
 }
 
-.grid {
-
-}
-
 table,
 tr,
 td {
   border: 1px solid #933;
 }
 
+/* styles for the table base */
 table {
   border-collapse: separate;
   margin: 5px auto;
@@ -131,16 +129,18 @@ table {
   cursor: pointer;
 }
 
+/* sizing of the table grid */
 tr {
   height: 60px;
 }
 
+/* sizing and styling of the individual cells. */
 td {
   font-family: 'FontAwesome', sans-serif;
   line-height: 48px;
   height: 48px;
   text-align: center;
-  font-size: 3.0em;
+  font-size: 3em;
   width: 60px;
   border-radius: 50%;
   box-shadow: 4px 4px 2px #933;
@@ -148,18 +148,21 @@ td {
   transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
 
+/* show half press of button cell on hover */
 td:hover {
   transform: translate(2px, 2px);
   box-shadow: 2px 2px 2px #933;
 }
 
+/* show full press of button cell on click */
 td:active {
   transform: translate(4px, 4px);
   box-shadow: 0 0 0 #c66;
 }
 
-/* The Modal (background) */
+/* style modal */
 .modal {
+  /* hide modal */
   display: none;
   position: fixed;
   z-index: 1;
@@ -169,14 +172,15 @@ td:active {
   width: 100%;
   height: 100%;
   overflow: auto;
+
+  /* try for semitransparent background */
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-/* Modal Content */
 .modal-content {
-  background-color: #fefefe;
+  background-color: #fff9de;
   margin: auto;
   padding: 20px;
-  border: 1px solid #888;
+  border: 1px solid lightgrey;
   width: 80%;
 }
