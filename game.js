@@ -103,6 +103,11 @@ function makeTimer() {
 // when a user clicks a card the listeners run this function
 function takeTurn(event) {
 
+    // start timer if this is the user's first click
+    if (moves === 0 && cardSlotA === "") {
+        clock = setInterval(makeTimer, 1000);
+    }
+
     // is user clicked a card already matched then exit otherwise process
     if (document.getElementById(event.target.id).classList.contains('match')) {
         return;
@@ -194,11 +199,6 @@ function takeTurn(event) {
         else if (moves === 20) {
             stars = 1;
             starCount(stars);
-        }
-
-        // start timer if this is the first turn
-        if (moves === 1) {
-            clock = setInterval(makeTimer, 1000);
         }
 
     }
