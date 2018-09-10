@@ -11,7 +11,7 @@ readme.md
 
  ### Prerequisites
 
- All that is needed to play the game is a modern web browser and a play to load the files from, such as a local computer directory.
+ All that is needed to play the game is a modern web browser and a place to load the files from, such as a local computer directory.
 
  ### Installing
 
