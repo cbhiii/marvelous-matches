@@ -40,8 +40,14 @@ let cardIconB = "";
 
 // init star count and display function
 function starCount (s) {
-    s2 = document.getElementById('star2');
-    s3 = document.getElementById('star3');
+    let s2 = document.getElementById('star2');
+    let s3 = document.getElementById('star3');
+    let s4 = document.getElementById('star4');
+
+    if (s < 4) {
+        document.getElementById("star4").classList.add('fontawesome-star-empty');
+        document.getElementById("star4").classList.remove('fontawesome-star');
+    }
 
     if (s < 3) {
         document.getElementById("star3").classList.add('fontawesome-star-empty');
@@ -198,7 +204,11 @@ function takeTurn(event) {
 
         // adjust number of stars shown based on moves taken
         document.getElementById('move').textContent = moves;
-        if (moves === 15) {
+        if (moves === 14) {
+            stars = 3;
+            starCount(stars);
+        }
+        else if (moves === 18) {
             stars = 2;
             starCount(stars);
         }
