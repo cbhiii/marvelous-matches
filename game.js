@@ -12,7 +12,14 @@
 // create card  cell reference
 const cards = ['c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8', 'c9', 'c10', 'c11', 'c12', 'c13', 'c14', 'c15', 'c16'];
 // create icon names in a set for ease of use
-let icons = ['fontawesome-globe', 'fontawesome-lightbulb', 'fontawesome-music', 'fontawesome-home', 'fontawesome-camera-retro', 'fontawesome-beaker', 'fontawesome-gift', 'fontawesome-key', 'fontawesome-globe', 'fontawesome-lightbulb', 'fontawesome-music', 'fontawesome-home', 'fontawesome-camera-retro', 'fontawesome-beaker', 'fontawesome-gift', 'fontawesome-key'];
+let randomNumber = Math.floor(Math.random() * 3);
+// icon set 1
+let icons1 = ['fontawesome-globe', 'fontawesome-lightbulb', 'fontawesome-music', 'fontawesome-home', 'fontawesome-camera-retro', 'fontawesome-beaker', 'fontawesome-gift', 'fontawesome-key', 'fontawesome-globe', 'fontawesome-lightbulb', 'fontawesome-music', 'fontawesome-home', 'fontawesome-camera-retro', 'fontawesome-beaker', 'fontawesome-gift', 'fontawesome-key'];
+// icon set 2
+let icons2 = ['fontawesome-asterisk', 'fontawesome-bullhorn', 'fontawesome-coffee', 'fontawesome-eye-open', 'fontawesome-bell', 'fontawesome-building', 'fontawesome-cloud', 'fontawesome-envelope', 'fontawesome-asterisk', 'fontawesome-bullhorn', 'fontawesome-coffee', 'fontawesome-eye-open', 'fontawesome-bell', 'fontawesome-building', 'fontawesome-cloud', 'fontawesome-envelope'];
+// icon set 3
+let icons3 = ['fontawesome-wrench', 'fontawesome-trophy', 'fontawesome-plane', 'fontawesome-lemon', 'fontawesome-money', 'fontawesome-suitcase', 'fontawesome-umbrella', 'fontawesome-picture', 'fontawesome-wrench', 'fontawesome-trophy', 'fontawesome-plane', 'fontawesome-lemon', 'fontawesome-money', 'fontawesome-suitcase', 'fontawesome-umbrella', 'fontawesome-picture'];
+
 let list = {};
 
 // track gameplay markers
@@ -72,9 +79,8 @@ function shuffle(array) {
     }
 
     for(let i=0; i < array.length; i += 1) {
-        list[cards[i]] = icons[i];
+        list[cards[i]] = array[i];
     }
-
 }
 
 // init event listeners on table cells (cards)
@@ -205,5 +211,13 @@ function takeTurn(event) {
 
 }
 
-// randomize cards
-shuffle(icons);
+// randomize cards with random set
+if (randomNumber === 1) {
+    shuffle(icons1);
+}
+else if (randomNumber === 2) {
+    shuffle(icons2);
+}
+else {
+    shuffle(icons3);
+}
