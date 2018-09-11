@@ -208,7 +208,7 @@ function takeTurn(event) {
             stars = 3;
             starCount(stars);
         }
-        else if (moves === 18) {
+        else if (moves === 17) {
             stars = 2;
             starCount(stars);
         }
