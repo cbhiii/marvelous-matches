@@ -85,7 +85,6 @@ header {
 
 .scoreItem {
   align-self: flex-end;
-  width: 25%;
 
   /* minimum button width for small screens */
   min-width: 48px;
@@ -96,9 +95,20 @@ header {
   height: 48px;
 }
 
+/* adjust scoreBoard box sizes to accomodate larger star box */
+.timer,
+.moves {
+  width: 25%;
+}
+
+.stars {
+  width: 35%;
+}
+
 /* flip repeat icon to more closely represent a restart icon */
 .restart {
   transform: rotateY(180deg);
+  width: 15%;
 }
 
 /*
@@ -166,7 +176,7 @@ td:active {
   display: none;
   position: fixed;
   z-index: 1;
-  padding-top: 200px;
+  padding-top: 50%;
   left: 0;
   top: 0;
   width: 100%;
@@ -181,6 +191,6 @@ td:active {
   background-color: #fff9de;
   margin: auto;
   padding: 20px;
-  border: 1px solid lightgrey;
   width: 80%;
+  border-radius: 10px;
 }

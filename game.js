@@ -169,7 +169,7 @@ function takeTurn(event) {
                 // stop timer
                 clearInterval(clock);
                 // format modal display text with html
-                document.getElementById('modalContent').innerHTML = "<p>Congratulations you win!</p><p>It took you " + gameTime + " seconds.<br>You did it in " + moves + " moves and earned a star rating of " + stars + ".</p><p>Click this window to play again!</p>";
+                document.getElementById('modalContent').innerHTML = "<p>Congratulations you win!</p><p>It took you " + gameTime + " seconds.</p><p>You did it in " + moves + " moves and earned a star rating of " + stars + ".</p><p>Click this window to play again!</p>";
                 let mod = document.getElementById('theModal');
                 // reveal modal
                 mod.style.cssText = "display: block;";
