@@ -31,6 +31,10 @@ body {
   color: #444;
 }
 
+body a {
+  text-decoration: none;
+}
+
 /*
 ********************
 * header
@@ -176,7 +180,7 @@ td:active {
   display: none;
   position: fixed;
   z-index: 1;
-  padding-top: 50%;
+  padding-top: 150px;
   left: 0;
   top: 0;
   width: 100%;
@@ -193,4 +197,33 @@ td:active {
   padding: 20px;
   width: 80%;
   border-radius: 10px;
+}
+
+.foot {
+  min-width: 48px;
+  min-height: 48px;
+
+  /* center vertically */
+  line-height: 48px;
+  height: 48px;
+  text-align: center;
+  padding: 10px;
+  color: #933;
+  font-size: 0.9em;
+  text-shadow: 2px 2px 2px lightgrey;
+}
+
+.foot a:link,
+.foot a:visited {
+  color: #933;
+  padding: 2px;
+}
+
+.foot a:hover,
+.foot a:active {
+  color: white;
+  background-color: #933;
+  border-radius: 2px;
+  text-shadow: 0 0 0;
+  padding: 2px;
 }
