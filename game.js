@@ -26,37 +26,35 @@ let list = {};
 let stars = 3;
 let moves = 0;
 let totalTime = 0;
+let gameTime = 0;
 let matches = 0;
 let sec = document.getElementById('time');
-let clock = "";
+let clock = '';
 
 // create slots for card selection
-let cardSlotA = "";
-let cardIconA = "";
-let cardSlotB = "";
-let cardIconB = "";
+let cardSlotA = '';
+let cardIconA = '';
+let cardSlotB = '';
+let cardIconB = '';
 
 // function declarations
 
 // init star count and display function
 function starCount (s) {
-    let s2 = document.getElementById('star2');
-    let s3 = document.getElementById('star3');
-    let s4 = document.getElementById('star4');
 
     if (s < 4) {
-        document.getElementById("star4").classList.add('fontawesome-star-empty');
-        document.getElementById("star4").classList.remove('fontawesome-star');
+        document.getElementById('star4').classList.add('fontawesome-star-empty');
+        document.getElementById('star4').classList.remove('fontawesome-star');
     }
 
     if (s < 3) {
-        document.getElementById("star3").classList.add('fontawesome-star-empty');
-        document.getElementById("star3").classList.remove('fontawesome-star');
+        document.getElementById('star3').classList.add('fontawesome-star-empty');
+        document.getElementById('star3').classList.remove('fontawesome-star');
     }
 
     if (s < 2) {
-        document.getElementById("star2").classList.add('fontawesome-star-empty');
-        document.getElementById("star2").classList.remove('fontawesome-star');
+        document.getElementById('star2').classList.add('fontawesome-star-empty');
+        document.getElementById('star2').classList.remove('fontawesome-star');
     }
 }
 
@@ -99,8 +97,8 @@ cards.forEach(function(crd) {
 // this delay is to pause game while cards are red and then set them back to yellow
 function noMatch (a,b,c,d) {
     return function(){
-        document.getElementById(a).style.cssText = "";
-        document.getElementById(b).style.cssText = "";
+        document.getElementById(a).style.cssText = '';
+        document.getElementById(b).style.cssText = '';
         document.getElementById(a).classList.remove(c);
         document.getElementById(b).classList.remove(d);
     };
@@ -109,14 +107,14 @@ function noMatch (a,b,c,d) {
 // create function to count seconds
 function makeTimer() {
     totalTime += 1;
-    sec.textContent = totalTime + "s";
+    sec.textContent = totalTime + 's';
 }
 
 // when a user clicks a card the listeners run this function
 function takeTurn(event) {
 
     // start timer if this is the user's first click
-    if (moves === 0 && cardSlotA === "") {
+    if (moves === 0 && cardSlotA === '') {
         clock = setInterval(makeTimer, 1000);
     }
 
@@ -134,17 +132,17 @@ function takeTurn(event) {
         }
 
         // if this is the user's first card this turn store card and show onscreen
-        if (cardSlotA === "") {
+        if (cardSlotA === '') {
             cardSlotA = (event.target.id);
             cardIconA = list[event.target.id];
-            document.getElementById(cardSlotA).style.cssText = "box-shadow: 0 0 0 #c66;  transform: translate(4px, 4px);";
+            document.getElementById(cardSlotA).style.cssText = 'box-shadow: 0 0 0 #c66;  transform: translate(4px, 4px);';
 
         }
         // if this is the user's second card this turn store card and show onscreen
         else {
             cardSlotB = (event.target.id);
             cardIconB = list[event.target.id];
-            document.getElementById(cardSlotB).style.cssText = "box-shadow: 0 0 0 #c66;  transform: translate(4px, 4px);";
+            document.getElementById(cardSlotB).style.cssText = 'box-shadow: 0 0 0 #c66;  transform: translate(4px, 4px);';
         }
 
         // if card types match then change cell styling to green and set class as 'match'
@@ -154,13 +152,13 @@ function takeTurn(event) {
             matches += 1;
             document.getElementById(cardSlotA).classList.add('match');
             document.getElementById(cardSlotB).classList.add('match');
-            document.getElementById(cardSlotA).style.cssText = "background: linear-gradient(to right bottom, #3f3, #090);box-shadow: 0 0 0 #c66;transform: translate(4px, 4px);";
-            document.getElementById(cardSlotB).style.cssText = "background: linear-gradient(to right bottom, #3f3, #090);box-shadow: 0 0 0 #c66;transform: translate(4px, 4px);";
+            document.getElementById(cardSlotA).style.cssText = 'background: linear-gradient(to right bottom, #3f3, #090);box-shadow: 0 0 0 #c66;transform: translate(4px, 4px);';
+            document.getElementById(cardSlotB).style.cssText = 'background: linear-gradient(to right bottom, #3f3, #090);box-shadow: 0 0 0 #c66;transform: translate(4px, 4px);';
             // clear card storage for next turn
-            cardSlotA = "";
-            cardSlotB = "";
-            cardIconA = "";
-            cardIconB = "";
+            cardSlotA = '';
+            cardSlotB = '';
+            cardIconA = '';
+            cardIconB = '';
 
             // check for a win if all 8 pairs matched
             // display game ending modal if this is so
@@ -169,10 +167,10 @@ function takeTurn(event) {
                 // stop timer
                 clearInterval(clock);
                 // format modal display text with html
-                document.getElementById('modalContent').innerHTML = "<p>Congratulations you win!</p><p>It took you " + gameTime + " seconds.</p><p>You did it in " + moves + " moves and earned a star rating of " + stars + ".</p><p>Click this window to play again!</p>";
+                document.getElementById('modalContent').innerHTML = '<p>Congratulations you win!</p><p>It took you ' + gameTime + ' seconds.</p><p>You did it in ' + moves + ' moves and earned a star rating of ' + stars + '.</p><p>Click this window to play again!</p>';
                 let mod = document.getElementById('theModal');
                 // reveal modal
-                mod.style.cssText = "display: block;";
+                mod.style.cssText = 'display: block;';
                 // add listener for click on modal
                 mod.addEventListener('click', function() {
                     location.reload();
@@ -182,24 +180,24 @@ function takeTurn(event) {
         }
 
         // if this is the user's first card then exit further evaluation
-        else if (cardSlotB === "") {
+        else if (cardSlotB === '') {
             return;
         }
 
         // if options above are not true then the cards do not match. Act accordingingly.
         else {
             moves += 1;
-            document.getElementById(cardSlotA).style.cssText = "background: linear-gradient(to right bottom, #f66, #c00);box-shadow: 0 0 0 #c66;transform: translate(4px, 4px);";
-            document.getElementById(cardSlotB).style.cssText = "background: linear-gradient(to right bottom, #f66, #c00);box-shadow: 0 0 0 #c66;transform: translate(4px, 4px);";
+            document.getElementById(cardSlotA).style.cssText = 'background: linear-gradient(to right bottom, #f66, #c00);box-shadow: 0 0 0 #c66;transform: translate(4px, 4px);';
+            document.getElementById(cardSlotB).style.cssText = 'background: linear-gradient(to right bottom, #f66, #c00);box-shadow: 0 0 0 #c66;transform: translate(4px, 4px);';
 
             // learned and using delay found here https://stackoverflow.com/a/24953
             // (what a pain to wrap my head around - but I got it!!!)
             setTimeout(noMatch(cardSlotA, cardSlotB, cardIconA, cardIconB), 1000);
             // clear card storage for next turn
-            cardSlotA = "";
-            cardSlotB = "";
-            cardIconA = "";
-            cardIconB = "";
+            cardSlotA = '';
+            cardSlotB = '';
+            cardIconA = '';
+            cardIconB = '';
         }
 
         // adjust number of stars shown based on moves taken
